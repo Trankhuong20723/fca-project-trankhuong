@@ -379,7 +379,7 @@ module.exports = function(loginData, options, callback) {
             }
         return login(loginData, options, callback);
     }).catch(function(err) {
-        console.(err)
+        console.log(err)
             log.error("[ FCA-UPDATE ] »",Language.UnableToConnect);
             log.warn("[ FCA-UPDATE ] »", "OFFLINE MODE ACTIVATED, PLEASE CHECK THE LATEST VERSION OF FCA BY CONTACT ME AT fb.me/Trankhuong.2072000");
         return login(loginData, options, callback);
