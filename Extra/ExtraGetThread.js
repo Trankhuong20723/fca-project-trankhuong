@@ -6,15 +6,15 @@ const logger = require("../logger");
 const getText = global.Fca.getText;
 var language = require("../Language/index.json");
 const fs = require("fs");
-language = language.find(i => i.Language == require(process.cwd() + "/Orion_Database/FastConfigFca.json").Language).Folder.ExtraGetThread;
+language = language.find(i => i.Language == require(process.cwd() + "/Trankhuong_Database/Fca-Project-Trankhuong.json").Language).Folder.ExtraGetThread;
 
 if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
-    if (!fs.existsSync(process.cwd() + "/Orion_Database/Threads.json")) {
-        fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify({}));
+    if (!fs.existsSync(process.cwd() + "/Trankhuong_Database/Threads.json")) {
+        fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify({}));
     }
 }
 else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type != "default" && global.Fca.Require.FastConfig.AntiGetInfo.Database_Type != "json") {
-    logger.Warning("Database_Type in /Orion_Database/FastConfigFca.json is not valid. Only default and json are valid.");
+    logger.Warning("Database_Type in /Trankhuong_Database/Fca-Project-Trankhuong.json is not valid. Only default and json are valid.");
     process.exit(0);
 }
 
@@ -32,15 +32,15 @@ exports.createData = function(threadID,threadData) {
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
             try {
-                var data = require(process.cwd() + "/Orion_Database/Threads.json");
+                var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             }
             catch (e) {
                 var data = {};
-                fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+                fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
             }
             
             data[String(threadID)] = Object(threadData);
-            fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+            fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
             logger.Normal(getText(language.CreateDatabaseSuccess,String(threadID)));
         }
         catch (e) {
@@ -72,7 +72,7 @@ exports.updateData = function(threadID,threadData) {
             }
             
             data[String(threadID)] = Object(threadData);
-            fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+            fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
             logger.Normal(getText(language.updateDataSuccess,String(threadID)));
         }
         catch (e) {
@@ -98,11 +98,11 @@ exports.updateMessageCount = function(threadID,threadData) {
             }
             catch (e) {
                 var data = {};
-                fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+                fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
             }
             
             data[String(threadID)] = Object(threadData);
-            fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+            fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
         }
         catch (e) {
             console.log(e);
@@ -123,7 +123,7 @@ exports.getData = function(threadID) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             switch (data.hasOwnProperty(String(threadID))) {
                 case true: {
                     return data[String(threadID)];
@@ -148,11 +148,11 @@ exports.deleteAll = function(data) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data1 = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data1 = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             for (let i of data) {
                 delete data1[String(i)];
             }
-            fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data1));
+            fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data1));
         }
         catch (e) {
             console.log(e);
@@ -167,7 +167,7 @@ exports.getAll = function() {
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
             const Data_Res = []
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             for (let i of Object.keys(data)) {
                 Data_Res.push({
                     ID: String(i),
@@ -189,7 +189,7 @@ exports.hasData = function(threadID) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             return data.hasOwnProperty(String(threadID));
         }
         catch (e) {
@@ -216,7 +216,7 @@ exports.alreadyUpdate = function(threadID) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             var Time = data[String(threadID)].TimeUpdate;
             try { 
                 if (global.Fca.startTime >= (Time + (3600 * 1000))) {
@@ -255,7 +255,7 @@ exports.readyCreate = function(Name) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             switch (data.hasOwnProperty(String(Name))) {
                 case true: {
                     if (Number(global.Fca.startTime) >= Number(data[String(Name)] + (120 * 1000))) {
@@ -283,9 +283,9 @@ exports.setLastRun = function(Name,LastRun) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             data[String(Name)] = String(lastRun(LastRun));
-            fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+            fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
         }
         catch (e) {
             console.log(e);
@@ -314,7 +314,7 @@ exports.getLastRun = function(Name) {
     }
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
-            var data = require(process.cwd() + "/Orion_Database/Threads.json");
+            var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             switch (data.hasOwnProperty(String(Name))) {
                 case true: {
                     return data[String(Name)];
