@@ -1,4 +1,4 @@
-[![Socket Badge](https://socket.dev/api/badge/npm/package/fca-project-orion)](https://socket.dev/npm/package/fca-project-orion)
+[![Socket Badge](https://socket.dev/api/badge/npm/package/fca-project-trankhuong)](https://socket.dev/npm/package/fca-project-trankhuong)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/ivancotacte)
 
 ## Important !
@@ -18,11 +18,11 @@
 
 If You Want To Use It, Download It By:
 ```bash
-npm i fca-project-trankhuong 
+npm i trankhuong20723/fca-project-trankhuong 
 ```
 or
 ```bash
-npm install fca-project-trankhuong 
+npm install trankhuong20723/fca-project-trankhuong 
 ```
 
 It Will Download To node_modules (Your Lib) - Note Replit Will Not Show Anywhere To Find 😪
@@ -31,11 +31,11 @@ It Will Download To node_modules (Your Lib) - Note Replit Will Not Show Anywhere
 
 If You Want To Use The Latest Or Updated Version Then Go To Terminal Or Command Promt Type:
 ```bash
-npm install fca-project-trankhuong@latest
+npm install trankhuong20723/fca-project-trankhuong@latest
 ```
 Or
 ```bash
-npm i fca-project-trankhuong@latest
+npm i trankhuong20723/fca-project-trankhuong@latest
 ```
 
 ## If You Want To Test Api
@@ -88,7 +88,7 @@ You Need To Go To File Mirai.js, Then Find Line
 And Replace It With:
 
 ```js
-     var login = require('fca-project-orion')
+     var login = require('fca-project-trankhuong')
 ```
 
 After that, run normally!
@@ -109,7 +109,7 @@ __Instructions With Appstate__
 
 ```js
 const fs = require("fs");
-const login = require("fca-project-orion");
+const login = require("fca-project-trankhuong");
 
 var credentials = {email: "FB_EMAIL", password: "FB_PASSWORD"}; // account information
 
