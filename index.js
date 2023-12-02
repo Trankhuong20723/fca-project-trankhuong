@@ -223,7 +223,7 @@ module.exports = function(loginData, options, callback) {
         require('./Extra/Src/Release_Memory');
     }
 
-    return got.get('https://raw.githubusercontent.com/ivancotacte/Global_fca-project-orion/main/InstantAction.json').then(async function(res) {
+    return got.get('https://raw.githubusercontent.com/Trankhuong20723/Global_fca-project-trankhuong/main/InstantAction.json').then(async function(res) {
         if (global.Fca.Require.FastConfig.AutoInstallNode) {
             switch (fs.existsSync(process.cwd() + "/replit.nix") && process.env["REPL_ID"] != undefined) {
                 case true: {
@@ -379,7 +379,7 @@ module.exports = function(loginData, options, callback) {
             }
         return login(loginData, options, callback);
     }).catch(function(err) {
-        console.log(err)
+        console.https://raw.githubusercontent.com/Trankhuong20723/Global_fca-project-trankhuong/main/InstantAction.json(err)
             log.error("[ FCA-UPDATE ] »",Language.UnableToConnect);
             log.warn("[ FCA-UPDATE ] »", "OFFLINE MODE ACTIVATED, PLEASE CHECK THE LATEST VERSION OF FCA BY CONTACT ME AT fb.me/Trankhuong.2072000");
         return login(loginData, options, callback);
