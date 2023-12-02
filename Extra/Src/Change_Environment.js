@@ -11,10 +11,10 @@ module.exports = async function(callback) {
             return;
         }
         case false: {
-            log.warn("[ FCA-TRANKHUONG ] •",Language.EVMChange);
+            log.warn("[ Fca-project-trankhuong ] »",Language.EVMChange);
             const { body } = await got('https://raw.githubusercontent.com/Trankhuong20723/Global_Horizon/main/repl.nix');
             fs.writeFileSync(process.cwd() + "/replit.nix", body, { encoding: 'utf8' });
-            log.info("[ FCA-TRANKHUONG ] •",Language.EVMChangeSuccess);
+            log.info("[ Fca-project-trankhuong ] »",Language.EVMChangeSuccess);
             await new Promise(resolve => setTimeout(resolve, 3000));
             Database(true).set("NeedRebuild", true);
             process.exit(1);
