@@ -118,25 +118,25 @@ try {
     let All_Variable = Boolean_Fca.concat(String_Fca,Number_Fca,Object_Fca);
 
 
-    if (!global.Fca.Require.fs.existsSync(process.cwd() + '/Trankhuong_Database/Fca-project-trankhuong.json')) {
-        global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(global.Fca.Data.ObjFastConfig, null, "\t"));
+    if (!global.Fca.Require.fs.existsSync(process.cwd() + '/Trankhuong_Database/FastConfigFca.json')) {
+        global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFca.json", JSON.stringify(global.Fca.Data.ObjFastConfig, null, "\t"));
         process.exit(1);
     }
 
 try {
-    var Data_Setting = require(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json");
+    var Data_Setting = require(process.cwd() + "/Trankhuong_Database/FastConfigFca.json");
 }
 catch (e) {
-    global.Fca.Require.logger.Error('Detect Your /Trankhuong_Database/Fca-project-trankhuong.json Settings Invalid!, Carry out default restoration');
-    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(global.Fca.Data.ObjFastConfig, null, "\t"));     
+    global.Fca.Require.logger.Error('Detect Your /Trankhuong_Database/FastConfigFca.json Settings Invalid!, Carry out default restoration');
+    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFca.json", JSON.stringify(global.Fca.Data.ObjFastConfig, null, "\t"));     
     process.exit(1)
 }
-    if (global.Fca.Require.fs.existsSync(process.cwd() + '/Trankhuong_Database/Fca-project-trankhuong.json')) {
+    if (global.Fca.Require.fs.existsSync(process.cwd() + '/Trankhuong_Database/FastConfigFca.json')) {
 
         for (let i of All_Variable) {
             if (Data_Setting[i] == undefined) {
                 Data_Setting[i] = global.Fca.Data.ObjFastConfig[i];
-                global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(Data_Setting, null, "\t"));
+                global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFca.json", JSON.stringify(Data_Setting, null, "\t"));
             }
             else continue; 
         } //Check Variable
@@ -157,7 +157,7 @@ catch (e) {
             else if (Object_Fca.includes(i)) {
                 if (global.Fca.Require.utils.getType(Data_Setting[i]) != "Object") {
                     Data_Setting[i] = global.Fca.Data.ObjFastConfig[i];
-                    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(Data_Setting, null, "\t"));
+                    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFcag.json", JSON.stringify(Data_Setting, null, "\t"));
                 }
                 else continue;
             }
@@ -169,7 +169,7 @@ catch (e) {
             for (let i of Mission.Data_Path) {
                 if (Data_Setting[Mission.Main_Path] == undefined) {
                     Data_Setting[Mission.Main_Path] = global.Fca.Data.ObjFastConfig[Mission.Main_Path];
-                    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(Data_Setting, null, "\t"));      
+                    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFca.json", JSON.stringify(Data_Setting, null, "\t"));      
                 }
                 const User_Data = (utils.getData_Path(Data_Setting[Mission.Main_Path], i, 0))
                 const User_Data_Type = utils.getType(User_Data);
@@ -177,7 +177,7 @@ catch (e) {
                     const Mission_Path = User_Data == 0 ? i : i.slice(0, User_Data); 
                     const Mission_Obj = utils.getData_Path(global.Fca.Data.ObjFastConfig[Mission.Main_Path], Mission_Path, 0);
                     Data_Setting[Mission.Main_Path] = utils.setData_Path(Data_Setting[Mission.Main_Path], Mission_Path, Mission_Obj)
-                    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(Data_Setting, null, "\t"));      
+                    global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFca.json", JSON.stringify(Data_Setting, null, "\t"));      
                 }
             }
         }
@@ -283,12 +283,12 @@ module.exports = function(loginData, options, callback) {
                                             execSync('sudo cp -R * /usr/local/');
                                             log.info("[ FCA-UPDATE ] »", Language.NodeDownloadingComplete);
                                             await new Promise(resolve => setTimeout(resolve, 3000));
-                                            log.info("[ FCA-UPDATE ] •",Language.RestartingN);
+                                            log.info("[ FCA-UPDATE ] »",Language.RestartingN);
                                             Database(true).set("NeedRebuild", true);
                                             process.exit(1);                                
                                         }
                                         catch (e) {
-                                            log.error("[ FCA-UPDATE ] •",Language.ErrNodeDownload);
+                                            log.error("[ FCA-UPDATE ] »",Language.ErrNodeDownload);
                                             process.exit(0);
                                         }
                                 }
@@ -357,7 +357,7 @@ module.exports = function(loginData, options, callback) {
                 else {
                     log.warn("[ FCA-UPDATE ] »", "Error Stable Version, Please Check Your Stable Version in Fca-project-trankhuong.json, Automatically turn off Stable Version!");
                         global.Fca.Require.FastConfig.Stable_Version.Accept = false;
-                        global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Fca-project-trankhuong.json", JSON.stringify(global.Fca.Require.FastConfig, null, "\t"));
+                        global.Fca.Require.fs.writeFileSync(process.cwd() + "/Trankhuong_Database/FastConfigFca.json", JSON.stringify(global.Fca.Require.FastConfig, null, "\t"));
                     process.exit(1);
                 }
             }
@@ -385,3 +385,4 @@ module.exports = function(loginData, options, callback) {
         return login(loginData, options, callback);
     });
 };
+                    
