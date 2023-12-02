@@ -42,10 +42,10 @@ module.exports = function (defaultFuncs, api, ctx) {
             .then(utils.parseAndCheckLogin(ctx, defaultFuncs))
             .then(async function(dt) {
                 if (dt.__ar == 1) {
-                    callback(null, "Thành Công");
+                    callback(null, "Thành Công!");
                 }
                 else {
-                    callback(null, "Thất Bại");
+                    callback(null, "Thất Bại!");
                 }
             });
         })
