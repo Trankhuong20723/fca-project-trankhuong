@@ -42,7 +42,7 @@ async function getUIDFast(url,api) {
         return api.sendMessage("Lỗi: " + e.message,global.Fca.Data.event.threadID,global.Fca.Data.event.messageID);
 	}
     if (JSON.parse(data.body.toString()).error) return api.sendMessage(JSON.parse(data.body.toString()).error,global.Fca.Data.event.threadID,global.Fca.Data.event.messageID);
-    else return JSON.parse(data.body.toString()).id || "co cai nit huhu";
+    else return JSON.parse(data.body.toString()).id || "Có cái nịt";
 }
 
 /**
