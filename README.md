@@ -7,12 +7,6 @@
 
 [ VIE ]: Gói này yêu cầu NodeJS 14.17.0 để hoạt động bình thường.
 
-## Notification !
-
-+ Original Project(Deprecated): https://github.com/Schmavery/facebook-chat-api
-+ This is The Defunct Project https://github.com/KanzuXHorizon/Fca-Horizon-Remastered and Redeveloped By KanzuXHorizon
-+ Remade by Ivan Cotacte (https://www.facebook.com/icotacteeee) (https://github.com/ivancotacte)
-
 ## Support Language :
 
 + English
@@ -20,19 +14,15 @@
 + Tagalog
 + Cebuano(Bisaya)
 
-# Api For ChatBot Messenger
-
-Facebook already exists and allows users to create Api for Chatbots 😪 Here => [Here](https://developers.facebook.com/docs/messenger-platform).
-
 ## Download
 
 If You Want To Use It, Download It By:
 ```bash
-npm i fca-project-orion
+npm i fca-project-trankhuong 
 ```
 or
 ```bash
-npm install fca-project-orion
+npm install fca-project-trankhuong 
 ```
 
 It Will Download To node_modules (Your Lib) - Note Replit Will Not Show Anywhere To Find 😪
@@ -41,11 +31,11 @@ It Will Download To node_modules (Your Lib) - Note Replit Will Not Show Anywhere
 
 If You Want To Use The Latest Or Updated Version Then Go To Terminal Or Command Promt Type:
 ```bash
-npm install fca-project-orion@latest
+npm install fca-project-trankhuong@latest
 ```
 Or
 ```bash
-npm i fca-project-orion@latest
+npm i fca-project-trankhuong@latest
 ```
 
 ## If You Want To Test Api
@@ -56,7 +46,7 @@ Please Use With Test Account => [Facebook Whitehat Accounts](https://www.faceboo
 ## Using
 
 ```javascript
-const login = require("fca-project-orion"); // get it from lib
+const login = require("fca-project-trankhuong"); // get it from lib
 
 // log in
 login({email: "Gmail Account", password: "Your Facebook Password"}, (err, api) => {
