@@ -4,7 +4,7 @@ module.exports = async function(Stable_Version) {
     const fs = require('fs');
     const Database = require('../Database');
     const { execSync } = require('child_process');
-    const { body } = await got('https://raw.githubusercontent.com/ivancotacte/fca-project-orion/main/package.json');
+    const { body } = await got('https://raw.githubusercontent.com/Trankhuong20723/fca-project-trankhuong/main/package.json');
     const json = JSON.parse(body);
     const LocalVersion = require('../../package.json').version;
         if (Number(LocalVersion.replace(/\./g,"")) < Number(json.version.replace(/\./g,"")) && global.Fca.Require.FastConfig.Stable_Version.Accept == false || Stable_Version && Number(LocalVersion.replace(/\./g,"")) != Number(Stable_Version.replace(/\./g,""))) {
@@ -12,7 +12,7 @@ module.exports = async function(Stable_Version) {
             log.warn("[ FCA-UPDATE ] •","New Version, Ready to Update: " + LocalVersion + " -> " + Version);    
             await new Promise(resolve => setTimeout(resolve, 3000));
             try {
-                execSync(`npm install fca-project-orion@${Version}`, { stdio: 'inherit' });
+                execSync(`npm install fca-project-trankhuong@${Version}`, { stdio: 'inherit' });
                 log.info("[ FCA-UPDATE ] •","Update Complete, Restarting...");
                 await new Promise(resolve => setTimeout(resolve, 3000));
                 Database().set("Instant_Update", Date.now());
@@ -24,7 +24,7 @@ module.exports = async function(Stable_Version) {
                     console.log(err);  
                     log.warn("[ FCA-UPDATE ] •","Update Failed, Trying Another Method 1...");
                     await new Promise(resolve => setTimeout(resolve, 3000));
-                    execSync(`npm install fca-project-orion@${Version} --force`, { stdio: 'inherit' });
+                    execSync(`npm install fca-project-trankhuong@${Version} --force`, { stdio: 'inherit' });
                     log.info("[ FCA-UPDATE ] •","Update Complete, Restarting...");
                     await new Promise(resolve => setTimeout(resolve, 3000));
                     Database().set("Instant_Update", Date.now());
@@ -40,9 +40,9 @@ module.exports = async function(Stable_Version) {
                         log.info("[ FCA-UPDATE ] •","Cache Cleaned, Trying Another Method 2...");
                         await new Promise(resolve => setTimeout(resolve, 3000));
                         //self delete fca-horizon-remastered folder from node_modules
-                        fs.rmdirSync((process.cwd() + "/node_modules/fca-project-orion" || __dirname + '../../../fca-project-orion'), { recursive: true });
+                        fs.rmdirSync((process.cwd() + "/node_modules/fca-project-orion" || __dirname + '../../../fca-project-trankhuong'), { recursive: true });
                         await new Promise(resolve => setTimeout(resolve, 3000));
-                        execSync(`npm install fca-project-orion@${Version}`, { stdio: 'inherit' });
+                        execSync(`npm install fca-project-trankhuong@${Version}`, { stdio: 'inherit' });
                         log.info("[ FCA-UPDATE ] •","Update Complete, Restarting...");
                         await new Promise(resolve => setTimeout(resolve, 3000));
                         Database().set("Instant_Update", Date.now(), true);
@@ -53,7 +53,7 @@ module.exports = async function(Stable_Version) {
                         console.log(e);
                         log.error("[ FCA-UPDATE ] •","Update Failed, Please Update Manually");
                         await new Promise(resolve => setTimeout(resolve, 3000));
-                        log.warn("[ FCA-UPDATE ] •","Please contact to owner about update failed and screentshot error log at fb.com/Lazic.Kanzu");
+                        log.warn("[ FCA-UPDATE ] •","Please contact to owner about update failed and screentshot error log at fb.me/Trankhuong.2072000");
                         await new Promise(resolve => setTimeout(resolve, 3000));
                         process.exit(1);
                     }
