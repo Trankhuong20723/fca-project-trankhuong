@@ -6,7 +6,7 @@ const logger = require("../logger");
 const getText = global.Fca.getText;
 var language = require("../Language/index.json");
 const fs = require("fs");
-language = language.find(i => i.Language == require(process.cwd() + "/Trankhuong_Database/Fca-Project-Trankhuong.json").Language).Folder.ExtraGetThread;
+language = language.find(i => i.Language == require(process.cwd() + "/Trankhuong_Database/FastConfigFca.json").Language).Folder.ExtraGetThread;
 
 if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
     if (!fs.existsSync(process.cwd() + "/Trankhuong_Database/Threads.json")) {
@@ -14,7 +14,7 @@ if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
     }
 }
 else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type != "default" && global.Fca.Require.FastConfig.AntiGetInfo.Database_Type != "json") {
-    logger.Warning("Database_Type in /Trankhuong_Database/Fca-Project-Trankhuong.json is not valid. Only default and json are valid.");
+    logger.Warning("Database_Type in /Trankhuong_Database/FastConfigFca.json is not valid. Only default and json are valid.");
     process.exit(0);
 }
 
@@ -64,11 +64,11 @@ exports.updateData = function(threadID,threadData) {
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
             try {
-                var data = require(process.cwd() + "/Orion_Database/Threads.json");
+                var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             }
             catch (e) {
                 var data = {};
-                fs.writeFileSync(process.cwd() + "/Orion_Database/Threads.json",JSON.stringify(data));
+                fs.writeFileSync(process.cwd() + "/Trankhuong_Database/Threads.json",JSON.stringify(data));
             }
             
             data[String(threadID)] = Object(threadData);
@@ -94,7 +94,7 @@ exports.updateMessageCount = function(threadID,threadData) {
     else if (global.Fca.Require.FastConfig.AntiGetInfo.Database_Type == "json") {
         try {
             try {
-                var data = require(process.cwd() + "/Orion_Database/Threads.json");
+                var data = require(process.cwd() + "/Trankhuong_Database/Threads.json");
             }
             catch (e) {
                 var data = {};
@@ -337,4 +337,5 @@ exports.getLastRun = function(Name) {
             return Date.now();
         }
     }
-}
+                }
+        
