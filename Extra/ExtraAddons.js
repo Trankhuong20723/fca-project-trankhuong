@@ -65,7 +65,7 @@ module.exports.getAccessToken = async function (jar, ctx,defaultFuncs) {
                 return defaultFuncs.post(nextURLS, jar, Form, ctx.globalOptions, { 
                     referer: "https://business.facebook.com/security/twofactor/reauth/?twofac_next=https%3A%2F%2Fbusiness.facebook.com%2Fcontent_management&type=avoid_bypass&app_id=0&save_device=0",
                 }).then(async function(dataa) {
-                    if (String(dataa.body).includes(false)) throw { Error: "Invaild OTP | /Orion_Database/FastConfigFca.json: AuthString" }
+                    if (String(dataa.body).includes(false)) throw { Error: "Invaild OTP | /Trankhuong_Database/FastConfigFca.json: AuthString" }
                     return utils.get('https://business.facebook.com/content_management', jar, null, ctx.globalOptions,{ 
                         referer: "https://business.facebook.com/security/twofactor/reauth/?twofac_next=https%3A%2F%2Fbusiness.facebook.com%2Fcontent_management&type=avoid_bypass&app_id=0&save_device=0",
                     }).then(async function(data) {
