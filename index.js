@@ -27,7 +27,7 @@ global.Fca = new Object({
             "PreKey": "",
             "AutoUpdate": false,
             "CustomFont": true,
-            "MainColor": "#FFFF33",
+            "MainColor": "#FFFF00",
             "MainName": "[ FCA-PROJECT-TRANKHUONG ] »",
             "Uptime": false,
             "Config": "default",
