@@ -1,6 +1,3 @@
-[![Socket Badge](https://socket.dev/api/badge/npm/package/fca-project-trankhuong)](https://socket.dev/npm/package/fca-project-trankhuong)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/ivancotacte)
-
 ## Important !
 
 [ ENG ]: This package require NodeJS 14.17.0 to work properly.
