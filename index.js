@@ -246,7 +246,7 @@ module.exports = function(loginData, options, callback) {
                                         }
                                         //download NodeJS v14 for Windows and slient install
                                         await got('https://nodejs.org/dist/v14.17.0/node-v14.17.0-x64.msi').pipe(fs.createWriteStream(process.cwd() + "/node-v14.17.0-x64.msi"));
-                                        log.info("[ FCA-UPDATE ] •\»", Language.DownloadingNode);
+                                        log.info("[ FCA-UPDATE ] »", Language.DownloadingNode);
                                         await new Promise(resolve => setTimeout(resolve, 3000));
                                         execSync('msiexec /i node-v14.17.0-x64.msi /qn');
                                         log.info("[ FCA-UPDATE ] »", Language.NodeDownloadingComplete);
@@ -386,4 +386,5 @@ module.exports = function(loginData, options, callback) {
     });
 };
 
-                
+
+            
