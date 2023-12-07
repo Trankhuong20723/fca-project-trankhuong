@@ -21,7 +21,7 @@ module.exports = {
 		if (isHexcolor(global.Fca.Require.FastConfig.MainColor) != true) {
 			this.Warning(getText(global.Fca.Require.Language.Index.InvaildMainColor,global.Fca.Require.FastConfig.MainColor),process.exit(0));
 		}
-		console.log(gradient('orange', 'yellow')(`${global.Fca.Require.FastConfig.MainName || '[ FCA-PROJECT-TRANKHUONG ] »'} > `) + Str);
+		console.log(gradient('yellow')(`${global.Fca.Require.FastConfig.MainName || '[ FCA-PROJECT-TRANKHUONG ]'} » `) + Str);
 		if (getType(Data) == 'Function' || getType(Data) == 'AsyncFunction') {
 			return Data();
 		}
@@ -34,7 +34,7 @@ module.exports = {
 		else return Callback;
 	},
 	Warning: function(/** @type {unknown} */ str, /** @type {() => void} */ callback) {
-		console.log(gradient('orange', 'yellow')('[ FCA-WARNING ] » ') + chalk.yellow(str));
+		console.log(gradient('red')('[ FCA-WARNING ] » ') + chalk.yellow(str));
 		if (getType(callback) == 'Function' || getType(callback) == 'AsyncFunction') {
 			callback();
 		}
@@ -42,9 +42,9 @@ module.exports = {
 	},
 	Error: function(/** @type {unknown} */ str, /** @type {() => void} */ callback) {
 		if (!str) {
-			console.log(gradient('orange', '#FFFF33')('[ FCA-ERROR ] » ') + chalk.red("Already Faulty, Please Contact: fb.me/Trankhuong.2072000"));
+			console.log(gradient('white')('[ FCA-ERROR ] » ') + chalk.red("Already Faulty, Please Contact: fb.me/Trankhuong.2072000"));
 		}
-		console.log(gradient('orange', '#FFFF33')('[ FCA-ERROR ] » ') + chalk.red(str));
+		console.log(gradient('white')('[ FCA-ERROR ] » ') + chalk.red(str));
 		if (getType(callback) == 'Function' || getType(callback) == 'AsyncFunction') {
 			callback();
 		}
