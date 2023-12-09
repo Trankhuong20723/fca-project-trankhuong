@@ -9,12 +9,12 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Trankhuong20723/fca-project-trankhuong/issues"
+    "url": "https://github.com/trankhuong20723/fca-project-trankhuong/issues"
   },
-  "homepage": "https://github.com/Trankhuong20723/fca-project-trankhuong#readme",
+  "homepage": "https://github.com/trankhuong20723/fca-project-trankhuong#readme",
   "repository": {
     "type": "git",
-    "url": "git:https://github.com/Trankhuong20723/fca-project-trankhuong.git"
+    "url": "git://github.com/trankhuong20723/fca-project-trankhuong.git"
   },
   "dependencies": {
     "aes-js": "latest",
